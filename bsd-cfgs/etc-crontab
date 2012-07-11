@@ -1,0 +1,43 @@
+# /etc/crontab - root's crontab for FreeBSD
+#
+# $FreeBSD: src/etc/crontab,v 1.33.2.1.6.1 2010/12/21 17:09:25 kensmith Exp $
+#
+SHELL=/bin/sh
+PATH=/etc:/bin:/sbin:/usr/bin:/usr/sbin
+#
+#minute	hour	mday	month	wday	who	command
+#
+*/5	*	*	*	*	root	/usr/libexec/atrun
+#
+# Save some entropy so that /dev/random can re-seed on boot.
+*/11	*	*	*	*	operator /usr/libexec/save-entropy
+#
+# Rotate log files every hour, if necessary.
+0	*	*	*	*	root	newsyslog
+#
+# Perform daily/weekly/monthly maintenance.
+1	3	*	*	*	root	periodic daily
+15	4	*	*	6	root	periodic weekly
+30	5	1	*	*	root	periodic monthly
+#
+# Adjust the time zone if the CMOS clock keeps local time, as opposed to
+# UTC time.  See adjkerntz(8) for details.
+1,31	0-5	*	*	*	root	adjkerntz -a
+
+# Ports Update (on every week 16:00h)
+0	18	*	*	6 root portsnap -I cron update && pkg_version -vIL=
+0	16	*	*	6 root freebsd-update cron
+
+# DNSSEC root key  update (on every daily 19:00h)
+0	19	*	*	*	root	/usr/local/sbin/unbound-anchor -a "/usr/local/etc/unbound/root.key"
+
+# Auto Shutdown (on every day 21:30h)
+#minute hour    mday    month   wday    who     command
+50      21	*	*	0-4	root	shutdown -p now
+30      22	*	*	5,6	root	shutdown -p now
+#30	8	*	*	1-5	root	shutdown -p now	
+
+# ZFS Snapshots (on every 10 mins)
+*/10	*	*	*	*       root	/usr/local/bin/zfs-snapshot-mgmt
+# ZFS Pool pruefen (monatlich)
+0      14       1       *       *	root	zpool scrub rpool

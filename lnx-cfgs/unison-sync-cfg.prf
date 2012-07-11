@@ -1,0 +1,84 @@
+# Unison preferences file
+
+# Roots of the synchronization
+root = /____Path1____
+root = /____Path2____
+
+# Paths to synchronize
+
+# Besonderheiten und Ignorierende Daten
+ignore = Path {.DCOP*}
+ignore = Path {.*authority}
+ignore = Path {.adobe}
+ignore = Path {.bash_*}
+ignore = Path {.bashrc}
+ignore = Name .xsession-errors
+ignore = Name unison.log
+ignore = Name .sudo*
+ignore = Name *~
+ignore = Name .*~
+ignore = Name *.o
+ignore = Name temp.*
+ignore = Name *.tmp
+ignore = Name tmp-*
+ignore = Name *.bak
+ignore = Name cache-*u
+ignore = Path {.cache}
+ignore = Path {.config}
+ignore = Path {.cups}
+ignore = Path {.dmrc}
+ignore = Path {.dbus}
+ignore = Path {.esd_auth}
+ignore = Path {.exaile}
+ignore = Path {.fontconfig}
+ignore = Path {.fretsonfire}
+ignore = Path {.gconf}
+ignore = Path {.gconfd}
+ignore = Path {.gnome}
+ignore = Path {.gnome2}
+ignore = Path {.gnome2_private}
+ignore = Path {.gnome_private}
+ignore = Path {.gksu.lock}
+ignore = Path {.gqview}
+ignore = Path {.gstreamer-*}
+ignore = Path {.gtk-bookmarks}
+ignore = Path {.histfile*}
+ignore = Path {.icons}
+ignore = Path {.local}
+ignore = Path {.mcop}
+ignore = Path {.mcoprc}
+ignore = Path {.pulse}
+ignore = Path {.pulse-*}
+ignore = Path {.qt}
+ignore = Path {.recently-used}
+ignore = Path {.recently-used.xbel}
+ignore = Path {.sudo_as_admin_successful}
+ignore = Path {.thumbnails}
+ignore = Path {.transmission}
+ignore = Path {.update-manager-core}
+ignore = Path {.update-notifier}
+ignore = Path {.wapi}
+ignore = Path {.wine}
+ignore = Path {.xine}
+ignore = Path {.xsession-errors}
+ignore = Path {.zcompdump}
+ignore = Path {*.pls}
+ignore = Path {*.log}
+#ignore = Path .
+
+ignore = Path Private
+
+ignore = Path .unison
+ignore = Path .unison-gtk
+ignore = Path .mozilla/firefox/*.default/bookmarkbackups
+ignore = Path .mozilla/firefox/*.default/Cache
+ignore = Path .mozilla/firefox/*.default/adblock*
+
+# Zusatz Einstellungen
+perms = 0
+maxthreads = 20
+backupdir = /home/___username___/.backups
+maxbackups = 4
+backupsuffix = bak
+backuplocation = local
+#backup = all

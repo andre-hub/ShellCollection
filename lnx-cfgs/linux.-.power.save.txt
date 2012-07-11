@@ -1,0 +1,24 @@
+echo deactivate NMI watchdog
+echo 0 > /proc/sys/kernel/nmi_watchdog
+
+echo enable laptop mode
+echo 5 > /proc/sys/vm/laptop_mode
+
+echo enable HD audio powersave mode
+echo 1 > /sys/module/snd_hda_intel/parameters/power_save
+
+echo enable wireless power saving mode
+iwconfig wlan0 power timeout 500ms
+
+echo enable USB autosuspend
+for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 0 > $i; done
+for i in /sys/bus/usb/devices/*/power/level; do echo auto > $i; done
+
+echo increase \"VM dirty writeback time\" from 5 to 15 seconds
+echo 1500 > /proc/sys/vm/dirty_writeback_centisecs
+
+echo set SATA power management policy to minimum
+for i in /sys/class/scsi_host/*/link_power_management_policy; do echo min_power > $i; done
+
+echo enable Device Power Management
+for i in $(ls /sys/bus/{pci,i2c}/devices/*/power/control); do echo auto > $i; done
