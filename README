@@ -1,0 +1,17 @@
+Shellscript Collection
+======================
+both: scripts for bsd and linux
+bsd : scripts for only bsd
+lnx : scripts for only linux
+
+
+License
+=======
+ - MIT-LICENSE
+
+
+How to clone your collection
+=============================
+First, clone a copy of the main shellcollection git repo by running:
+
+git clone git://github.com/andre-hub/shellcollection.git
