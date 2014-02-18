@@ -1,76 +1,81 @@
 #!/bin/sh
+Y=`date +%Y-%m-%d`
+BACKUPDIR="backup-srv"
+CFGBACKUPMAINDIR=$BACKUPDIR"/srv-scripte"
+CFGBACKUPDIR=$CFGBACKUPMAINDIR"/configs"-$Y
 
-CFGBACKUPDIR="srv-scripte/configs/"
+SrvBackupSingleFile() {
+    CFGBACKUPFILE=`echo $1 | sed -e 's/\//-/g'`
+    CFGBACKUPFILE=$CFGBACKUPDIR"/"$CFGBACKUPFILE
+    echo "- backup file: /$1"
+    cp /$1 $CFGBACKUPFILE
+}
 
-cd ~
-if [ ! -d $CFGBACKUPDIR ]; then
-	mkdir srv-scripte
-	cd srv-scripte
-	mkdir configs
+if [ ! -d ~/$CFGBACKUPDIR ]; then
+    mkdir ~/$CFGBACKUPDIR
 fi
 
+cd ~
+CFGBACKUPDIR=~/$CFGBACKUPDIR
 # make list from installed ports
-portmaster --list-origins > $CFGBACKUPDIR"installed-port-list"
+portmaster --list-origins > $CFGBACKUPDIR"/installed-port-list"
 # insert portlist to portmaster
 # portmaster -y --no-confirm `cat installed-port-list`
 
-echo "etc rc.d"
+echo "backup files: /etc/rc.d/*"
 cd /etc/
-tar cvfj ~/srv-scripte/configs/etc-rc.d.tar.bz2 rc.d/
+tar cvfj $CFGBACKUPDIR/etc-rc.d.tar.bz2 rc.d/
 cd /usr/local/etc/
-tar cvfj ~/srv-scripte/configs/usr-local-etc-rc.d.tar.bz2 rc.d/
+tar cvfj $CFGBACKUPDIR/usr-local-etc-rc.d.tar.bz2 rc.d/
 
-cd ~
+echo "backup files: /etc/ssh"
+cd /etc/
+tar cvfj $CFGBACKUPDIR/etc-ssh.tar.bz2 ssh/
 
-CFGBACKUPFILE="boot-loader.conf"
-echo $CFGBACKUPFILE
-cp /boot/loader.conf $CFGBACKUPDIR$CFGBACKUPFILE
+cd $CFGBACKUPDIR
+# /etc/.....
+SrvBackupSingleFile "boot/loader.conf"
+SrvBackupSingleFile "etc/crontab"
+SrvBackupSingleFile "etc/group"
+SrvBackupSingleFile "etc/hosts.allow"
+SrvBackupSingleFile "etc/passwd"
+SrvBackupSingleFile "etc/periodic.conf"
+SrvBackupSingleFile "etc/make.conf"
+SrvBackupSingleFile "etc/pf.conf"
+SrvBackupSingleFile "etc/ppp/ppp.conf"
+SrvBackupSingleFile "etc/rc.conf"
+SrvBackupSingleFile "etc/resolv.conf"
+SrvBackupSingleFile "etc/sysctl.conf"
 
-CFGBACKUPFILE="etc-crontab"
-echo $CFGBACKUPFILE
-cp /etc/crontab $CFGBACKUPDIR$CFGBACKUPFILE
-
-CFGBACKUPFILE="etc-sysctl.conf"
-echo $CFGBACKUPFILE
-cp /etc/sysctl.conf $CFGBACKUPDIR$CFGBACKUPFILE
-
-CFGBACKUPFILE="etc-hosts.allow"
-echo $CFGBACKUPFILE
-cp /etc/hosts.allow $CFGBACKUPDIR$CFGBACKUPFILE
-
-CFGBACKUPFILE="etc-pf.conf"
-echo $CFGBACKUPFILE
-cp /etc/pf.conf $CFGBACKUPDIR$CFGBACKUPFILE
-
-CFGBACKUPFILE="etc-ppp-ppp.conf"
-echo $CFGBACKUPFILE
-cp /etc/ppp/ppp.conf $CFGBACKUPDIR$CFGBACKUPFILE
-
-CFGBACKUPFILE="etc-rc.conf"
-echo $CFGBACKUPFILE
-cp /etc/rc.conf $CFGBACKUPDIR$CFGBACKUPFILE
-
-CFGBACKUPFILE="usr-local-etc-dhcpd.conf"
-echo $CFGBACKUPFILE
-cp /usr/local/etc/dhcpd.conf $CFGBACKUPDIR$CFGBACKUPFILE
-
-CFGBACKUPFILE="usr-local-etc-dhcpd6.conf"
-echo $CFGBACKUPFILE
-cp /usr/local/etc/dhcpd6.conf $CFGBACKUPDIR$CFGBACKUPFILE
+# /usr/local/etc
+SrvBackupSingleFile "usr/local/etc/dhcpcd.conf"
+SrvBackupSingleFile "usr/local/etc/dhcpd.conf"
+SrvBackupSingleFile "usr/local/etc/dhcpd6.conf"
+SrvBackupSingleFile "usr/local/etc/ezjail/hippy_local"  
+SrvBackupSingleFile "usr/local/etc/ezjail/srv1_local"
+SrvBackupSingleFile "usr/local/etc/ezjail/srv2_local"
+SrvBackupSingleFile "usr/local/etc/ezjail.conf"
+SrvBackupSingleFile "usr/local/etc/named.cache"
+SrvBackupSingleFile "usr/local/etc/pkg.conf"
+SrvBackupSingleFile "usr/local/etc/portaudit.conf"
+SrvBackupSingleFile "usr/local/etc/portaudit.pubkey"
+SrvBackupSingleFile "usr/local/etc/portmaster.rc"
+SrvBackupSingleFile "usr/local/etc/rkhunter.conf"
+SrvBackupSingleFile "usr/local/etc/rsyncd.conf"
+SrvBackupSingleFile "usr/local/etc/smartd.conf"
+SrvBackupSingleFile "usr/local/etc/vnstat.conf"
 
 
-CFGBACKUPFILE="usr-local-etc-smartd.conf"
-echo $CFGBACKUPFILE
-cp /usr/local/etc/smartd.conf $CFGBACKUPDIR$CFGBACKUPFILE
+# /usr/local/.../unbound
+SrvBackupSingleFile "usr/local/etc/unbound/dnsspoof.conf"
+srvBackupSingleFile "usr/local/etc/unbound/unbound_control.key"
+SrvBackupSingleFile "usr/local/etc/unbound/unbound_control.pem"
+SrvBackupSingleFile "usr/local/etc/unbound/unbound_server.key"
+SrvBackupSingleFile "usr/local/etc/unbound/unbound_server.pem"
+SrvBackupSingleFile "usr/local/etc/unbound/unbound.conf"
+SrvBackupSingleFile "usr/local/etc/unbound/blacklist.sh"
 
-CFGBACKUPFILE="usr-local-etc-unbound-dnsspoof.conf"
-echo $CFGBACKUPFILE
-cp /usr/local/etc/unbound/dnsspoof.conf $CFGBACKUPDIR$CFGBACKUPFILE
 
-CFGBACKUPFILE="usr-local-etc-unbound-unbound.conf"
-echo $CFGBACKUPFILE
-cp /usr/local/etc/unbound/unbound.conf $CFGBACKUPDIR$CFGBACKUPFILE
-
-CFGBACKUPFILE="usr-local-etc-zfs-snapshot-mgmt.conf"
-echo $CFGBACKUPFILE
-cp /usr/local/etc/zfs-snapshot-mgmt.conf $CFGBACKUPDIR$CFGBACKUPFILE
+#/usr/local/bin\.... scripte
+SrvBackupSingleFile "usr/local/bin/jails-backup.sh"
+SrvBackupSingleFile "usr/local/bin/mount-jails-ports.sh"
