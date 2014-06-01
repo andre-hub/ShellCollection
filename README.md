@@ -1,9 +1,9 @@
 ## Shellscript Collection
 
-both: scripts for bsd and linux
-bsd : scripts for only bsd
-cfgs: configuration collection for unix, linux ...
-lnx : scripts for only linux
+ * both: scripts for bsd and linux
+ * bsd : scripts for only bsd
+ * cfgs: configuration collection for unix, linux ...
+ * lnx : scripts for only linux
 
 
 ##License
