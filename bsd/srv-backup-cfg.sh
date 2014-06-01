@@ -1,26 +1,22 @@
 #!/bin/sh
 Y=`date +%Y-%m-%d`
-BACKUPDIR="backup-srv"
-CFGBACKUPMAINDIR=$BACKUPDIR"/srv-scripte"
+CFGBACKUPMAINDIR="configs"
 CFGBACKUPDIR=$CFGBACKUPMAINDIR"/configs"-$Y
+
+CurrentPath=`pwd`
+CFGBACKUPDIR=$CurrentPath/$CFGBACKUPDIR
 
 SrvBackupSingleFile() {
     CFGBACKUPFILE=`echo $1 | sed -e 's/\//-/g'`
-    CFGBACKUPFILE=$CFGBACKUPDIR"/"$CFGBACKUPFILE
+    CFGBACKUPFILE=$CFGBACKUPDIR/$CFGBACKUPFILE
     echo "- backup file: /$1"
     cp /$1 $CFGBACKUPFILE
 }
 
-if [ ! -d ~/$CFGBACKUPDIR ]; then
-    mkdir ~/$CFGBACKUPDIR
-fi
 
-cd ~
-CFGBACKUPDIR=~/$CFGBACKUPDIR
-# make list from installed ports
-portmaster --list-origins > $CFGBACKUPDIR"/installed-port-list"
-# insert portlist to portmaster
-# portmaster -y --no-confirm `cat installed-port-list`
+if [ ! -d $CFGBACKUPDIR ]; then
+    mkdir $CFGBACKUPDIR
+fi
 
 echo "backup files: /etc/rc.d/*"
 cd /etc/
@@ -65,17 +61,10 @@ SrvBackupSingleFile "usr/local/etc/rsyncd.conf"
 SrvBackupSingleFile "usr/local/etc/smartd.conf"
 SrvBackupSingleFile "usr/local/etc/vnstat.conf"
 
-
 # /usr/local/.../unbound
-SrvBackupSingleFile "usr/local/etc/unbound/dnsspoof.conf"
-srvBackupSingleFile "usr/local/etc/unbound/unbound_control.key"
-SrvBackupSingleFile "usr/local/etc/unbound/unbound_control.pem"
-SrvBackupSingleFile "usr/local/etc/unbound/unbound_server.key"
-SrvBackupSingleFile "usr/local/etc/unbound/unbound_server.pem"
-SrvBackupSingleFile "usr/local/etc/unbound/unbound.conf"
-SrvBackupSingleFile "usr/local/etc/unbound/blacklist.sh"
-
-
-#/usr/local/bin\.... scripte
-SrvBackupSingleFile "usr/local/bin/jails-backup.sh"
-SrvBackupSingleFile "usr/local/bin/mount-jails-ports.sh"
+SrvBackupSingleFile "usr/jails/srv2.local/usr/local/etc/unbound/dnsspoof.conf"
+SrvBackupSingleFile "usr/jails/srv2.local/usr/local/etc/unbound/unbound_control.key"
+SrvBackupSingleFile "usr/jails/srv2.local/usr/local/etc/unbound/unbound_control.pem"
+SrvBackupSingleFile "usr/jails/srv2.local/usr/local/etc/unbound/unbound_server.key"
+SrvBackupSingleFile "usr/jails/srv2.local/usr/local/etc/unbound/unbound_server.pem"
+SrvBackupSingleFile "usr/jails/srv2.local/usr/local/etc/unbound/unbound.conf"
