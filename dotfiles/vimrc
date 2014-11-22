@@ -1,0 +1,151 @@
+set nocompatible
+
+" Initialize Pathogen
+runtime autoload/pathogen.vim
+execute pathogen#infect()
+call pathogen#helptags()
+
+" Enable syntax highlighting
+syntax on
+" filetype plugin indent off
+
+" Add line numbers
+set number
+set ruler
+
+" Set encoding
+set encoding=utf-8
+
+" Make Magic 
+set autoindent
+set completeopt=menuone,longest
+set expandtab
+set backspace=2
+set laststatus=2
+
+" Whitespace stuff
+set nowrap
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+" Show trailing spaces and highlight hard tabs
+" set list listchars=tab:»·,trail:·
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" Strip trailing whitespaces on each save
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" Search related settings
+set incsearch
+set hlsearch
+
+" Map Ctrl+l to clear highlighted searches
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+" Disable code folding
+" set nofoldenable
+
+" Directories for swp files
+set backupdir=~/.vimbackup
+set directory=~/.vimbackup
+
+" NERDTree configuration
+let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
+let g:NERDShutUp = 1
+map <Leader>n :NERDTreeToggle<CR>
+noremap <C-E><C-E> :NERDTree<CR>
+noremap <C-E><C-C> :NERDTreeClose<CR>
+
+" SuperTab Completion
+" let g:SuperTabDefaultCompletionType = "<c-n>"
+
+runtime autoload/autoclose.vim
+nmap <Leader>x <Plug>ToggleAutoCloseMappings
+
+" NEOCOMPLCACHE SETTINGS
+let g:neocomplcache_enable_at_startup = 1
+imap neosnippet#expandable() ? "(neosnippet_expand_or_jump)" : pumvisible() ? "" : ""
+smap neosnippet#expandable() ? "(neosnippet_expand_or_jump)" :
+let g:neocomplcache_force_overwrite_completefunc = 1
+if !exists('g:neocomplcache_omni_functions')
+  let g:neocomplcache_omni_functions = {}
+endif
+if !exists('g:neocomplcache_force_omni_patterns')
+  let g:neocomplcache_force_omni_patterns = {}
+endif
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_force_omni_patterns['python'] = '[^. t].w*'
+set ofu=syntaxcomplete#Complete
+
+au FileType python set omnifunc=pythoncomplete#Complete
+au FileType python let b:did_ftplugin = 1
+
+" Vim-jedi settings
+let g:jedi#popup_on_dot = 0
+
+ " # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+set t_Co=256
+colorscheme smyck
+" colorscheme molokai
+" let g:molokai_original = 0
+
+" make uses real tabs
+au FileType make set noexpandtab
+
+" Erlang uses 4 spaces
+au FileType erlang set softtabstop=4 tabstop=4 shiftwidth=4
+
+" md, markdown, and mk are markdown and define buffer-local preview
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} runtime bundle/markdown.vim
+
+" add json syntax highlighting
+au BufNewFile,BufRead *.json set ft=javascript
+au BufRead,BufNewFile *.js set filetype=js ft=javascript
+au BufRead,BufNewFile *.txt call s:setupWrapping()
+
+" make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" ctrp custom ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.eunit$',
+  \ 'file': '\.exe$\|\.so$\|\.dll\|\.beam$\|\.DS_Store$'
+  \ }
+
+" syntastic
+call pathogen#infect()
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd', 'php5']
+
+" golang
+" let g:go_bin_path = "/home/username/.mypath"
+au BufRead,BufNewFile *.go set filetype=go
+au FileType go nmap <Leader>i <Plug>(go-import)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+let g:go_snippet_engine = "neosnippet"

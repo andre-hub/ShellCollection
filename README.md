@@ -3,6 +3,7 @@
  * both: scripts for bsd and linux
  * bsd : scripts for only bsd
  * cfgs: configuration collection for unix, linux ...
+ * dotfiles: home dotfiles
  * lnx : scripts for only linux
 
 
