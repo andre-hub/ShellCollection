@@ -1,0 +1,24 @@
+[submodule "dotfiles/vim/bundle-deactivated/vim-go"]
+	path = dotfiles/vim/bundle-deactivated/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule "dotfiles/vim/bundle-deactivated/jedi-vim"]
+	path = dotfiles/vim/bundle-deactivated/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "dotfiles/vim/bundle-deactivated/neocomplcache"]
+	path = dotfiles/vim/bundle-deactivated/neocomplcache
+	url = https://github.com/Shougo/neocomplcache.git
+[submodule "dotfiles/vim/bundle-deactivated/neosnippet"]
+	path = dotfiles/vim/bundle-deactivated/neosnippet
+	url = https://github.com/Shougo/neosnippet.git
+[submodule "dotfiles/vim/bundle-deactivated/vim-pathogen"]
+	path = dotfiles/vim/bundle-deactivated/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule "dotfiles/vim/bundle-deactivated/nerdtree"]
+	path = dotfiles/vim/bundle-deactivated/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "dotfiles/vim/bundle-deactivated/syntastic"]
+	path = dotfiles/vim/bundle-deactivated/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "dotfiles/vim/bundle-deactivated/supertab"]
+	path = dotfiles/vim/bundle-deactivated/supertab
+	url = https://github.com/ervandew/supertab.git

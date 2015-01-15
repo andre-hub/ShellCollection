@@ -1,21 +1,21 @@
 #!/bin/sh
 CleanBundleDir() {
-	rm ~/.vim/bundle/*
+	rm bundle/*
 }
 
 ActivateBundle() {
-	vimcfgPath="/home/andre/.vim"
 	pathActivated="bundle"
-	pathDeactivated="bundle-deactivated"
+	pathDeactivated="../bundle-deactivated"
 
-	ln -s $vimcfgPath/$pathDeactivated/$1/ $vimcfgPath/$pathActivated/$1
+	ln -s $pathDeactivated/$1/ $pathActivated/$1
 }
 
 CleanBundleDir
 ActivateBundle "jedi-vim"
-ActivateBundle "markdown"
 ActivateBundle "neocomplcache"
 ActivateBundle "neosnippet"
 ActivateBundle "nerdtree"
+ActivateBundle "supertab"
 ActivateBundle "syntastic"
 ActivateBundle "vim-go"
+ActivateBundle "vim-pathogen"
