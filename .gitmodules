@@ -22,3 +22,6 @@
 [submodule "dotfiles/vim/bundle-deactivated/supertab"]
 	path = dotfiles/vim/bundle-deactivated/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "dotfiles/vim/bundle-deactivated/vim-markdown"]
+	path = dotfiles/vim/bundle-deactivated/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
