@@ -1,6 +1,12 @@
 [user]
-	name = =our name=
-	email = =email=
+	name = %our name%
+	email = %email%
+[credential]
+	helper = cache --timeout=3600
+[github]
+	user = %our username%
+	name = %our name%
+	email = %email%
 [color]
     branch = auto
     diff = auto
@@ -18,11 +24,12 @@
 [color "status"]
     added = yellow
     changed = green
-    untracked = cyan[pack]
+    untracked = cyan
 	threads = 2
 [core]
 	autocrlf = false
 	editor = vim
+	quotepath = false
 [merge]
 	tool = vimdiff
 [diff]
@@ -31,10 +38,6 @@
 	autosquash = true
 [branch]
 	autosetuprebase = always
-[github]
-	user = =our username=
-	name = =our name=
-	email = =email=
 [alias]
 	ad = add
 	aa = add .
@@ -49,3 +52,5 @@
 	ps = push
 	au = !git add $(git ls-files -o --exclude-standard)
 	lg = log --graph --date=local --format=format:'%C(bold red)%h%Creset %Cgreen%d%Creset %C(yellow)%s%Creset%n         %C(bold white)Author:%Creset  %an%n         %C(bold white)Date:    %Creset%ar (%ad)'
+[push]
+	default = simple
