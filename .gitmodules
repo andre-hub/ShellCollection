@@ -28,3 +28,6 @@
 [submodule "dotfiles/vim/bundle-deactivated/neosnippet-snippets"]
 	path = dotfiles/vim/bundle-deactivated/neosnippet-snippets
 	url = https://github.com/Shougo/neosnippet-snippets
+[submodule "dotfiles/vim/bundle-deactivated/neosnippet.vim"]
+	path = dotfiles/vim/bundle-deactivated/neosnippet.vim
+	url = https://github.com/Shougo/neosnippet.vim.git

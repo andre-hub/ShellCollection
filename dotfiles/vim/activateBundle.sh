@@ -14,6 +14,7 @@ CleanBundleDir
 ActivateBundle "jedi-vim"
 ActivateBundle "neocomplcache"
 ActivateBundle "neosnippet"
+ActivateBundle "neosnippet-snippets"
 ActivateBundle "nerdtree"
 ActivateBundle "supertab"
 ActivateBundle "syntastic"
