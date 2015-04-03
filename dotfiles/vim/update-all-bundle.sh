@@ -1,6 +1,5 @@
 #!/bin/sh
 gitUpdateSubmodule() {
-	git submodule foreach git pull --rebase=true origin master
 	git submodule update --merge
 }
 
@@ -13,3 +12,4 @@ rDir() {
 }
 
 rDir bundle-deactivated gitUpdateSubmodule
+git submodule foreach git pull --rebase=true origin master

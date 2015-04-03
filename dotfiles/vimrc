@@ -10,6 +10,8 @@ call pathogen#helptags()
 syntax on
 filetype plugin indent on
 
+let g:color_coded_enabled = 1
+
 " Add line numbers
 set number
 set ruler
