@@ -31,3 +31,6 @@
 [submodule "dotfiles/vim/bundle-deactivated/neosnippet.vim"]
 	path = dotfiles/vim/bundle-deactivated/neosnippet.vim
 	url = https://github.com/Shougo/neosnippet.vim.git
+[submodule "dotfiles/vim/bundle-deactivated/color_coded"]
+	path = dotfiles/vim/bundle-deactivated/color_coded
+	url = https://github.com/jeaye/color_coded.git
