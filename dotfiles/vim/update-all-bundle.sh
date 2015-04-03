@@ -1,6 +1,7 @@
 #!/bin/sh
 gitUpdateSubmodule() {
-	git submodule update
+	git submodule foreach git pull --rebase=true origin master
+	git submodule update --merge
 }
 
 rDir() {
