@@ -1,36 +1,96 @@
-[submodule "dotfiles/vim/bundle-deactivated/vim-go"]
-	path = dotfiles/vim/bundle-deactivated/vim-go
-	url = https://github.com/fatih/vim-go.git
-[submodule "dotfiles/vim/bundle-deactivated/jedi-vim"]
-	path = dotfiles/vim/bundle-deactivated/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git
-[submodule "dotfiles/vim/bundle-deactivated/neocomplcache"]
-	path = dotfiles/vim/bundle-deactivated/neocomplcache
-	url = https://github.com/Shougo/neocomplcache.git
-[submodule "dotfiles/vim/bundle-deactivated/neosnippet"]
-	path = dotfiles/vim/bundle-deactivated/neosnippet
-	url = https://github.com/Shougo/neosnippet.git
-[submodule "dotfiles/vim/bundle-deactivated/vim-pathogen"]
-	path = dotfiles/vim/bundle-deactivated/vim-pathogen
+[submodule "bundle/vim-pathogen"]
+	path = bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "dotfiles/vim/bundle-deactivated/nerdtree"]
-	path = dotfiles/vim/bundle-deactivated/nerdtree
+[submodule "bundle/ack.vim"]
+	path = bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "bundle/delimitMate"]
+	path = bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "dotfiles/vim/bundle-deactivated/syntastic"]
-	path = dotfiles/vim/bundle-deactivated/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "dotfiles/vim/bundle-deactivated/supertab"]
-	path = dotfiles/vim/bundle-deactivated/supertab
+[submodule "bundle/supertab"]
+	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule "dotfiles/vim/bundle-deactivated/vim-markdown"]
-	path = dotfiles/vim/bundle-deactivated/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
-[submodule "dotfiles/vim/bundle-deactivated/neosnippet-snippets"]
-	path = dotfiles/vim/bundle-deactivated/neosnippet-snippets
-	url = https://github.com/Shougo/neosnippet-snippets
-[submodule "dotfiles/vim/bundle-deactivated/neosnippet.vim"]
-	path = dotfiles/vim/bundle-deactivated/neosnippet.vim
-	url = https://github.com/Shougo/neosnippet.vim.git
-[submodule "dotfiles/vim/bundle-deactivated/color_coded"]
-	path = dotfiles/vim/bundle-deactivated/color_coded
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/vim-javascript-syntax"]
+	path = bundle/vim-javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "bundle/JavaScript-Indent"]
+	path = bundle/JavaScript-Indent
+	url = https://github.com/vim-scripts/JavaScript-Indent.git
+[submodule "bundle/ctrlp.vim"]
+	path = bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "bundle/vim-erlang-compiler"]
+	path = bundle/vim-erlang-compiler
+	url = https://github.com/vim-erlang/vim-erlang-compiler.git
+[submodule "bundle/vim-go"]
+	path = bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule "bundle/vim-gitgutter"]
+	path = bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "bundle/auto-pairs"]
+	path = bundle/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "bundle/color_coded"]
+	path = bundle/color_coded
+	url = https://github.com/jeaye/color_coded.git
+[submodule "dotfiles/vim/bundle/vim-pathogen"]
+	path = dotfiles/vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule "dotfiles/vim/bundle/ack.vim"]
+	path = dotfiles/vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "dotfiles/vim/bundle/delimitMate"]
+	path = dotfiles/vim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "dotfiles/vim/bundle/nerdcommenter"]
+	path = dotfiles/vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "dotfiles/vim/bundle/nerdtree"]
+	path = dotfiles/vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "dotfiles/vim/bundle/supertab"]
+	path = dotfiles/vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "dotfiles/vim/bundle/vim-markdown"]
+	path = dotfiles/vim/bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
+[submodule "dotfiles/vim/bundle/syntastic"]
+	path = dotfiles/vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "dotfiles/vim/bundle/vim-javascript-syntax"]
+	path = dotfiles/vim/bundle/vim-javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "dotfiles/vim/bundle/JavaScript-Indent"]
+	path = dotfiles/vim/bundle/JavaScript-Indent
+	url = https://github.com/vim-scripts/JavaScript-Indent.git
+[submodule "dotfiles/vim/bundle/ctrlp.vim"]
+	path = dotfiles/vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "dotfiles/vim/bundle/vim-erlang-compiler"]
+	path = dotfiles/vim/bundle/vim-erlang-compiler
+	url = https://github.com/vim-erlang/vim-erlang-compiler.git
+[submodule "dotfiles/vim/bundle/vim-go"]
+	path = dotfiles/vim/bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule "dotfiles/vim/bundle/vim-gitgutter"]
+	path = dotfiles/vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "dotfiles/vim/bundle/auto-pairs"]
+	path = dotfiles/vim/bundle/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "dotfiles/vim/bundle/color_coded"]
+	path = dotfiles/vim/bundle/color_coded
 	url = https://github.com/jeaye/color_coded.git

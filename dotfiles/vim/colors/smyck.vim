@@ -20,13 +20,14 @@ hi Normal               cterm=none ctermbg=none     ctermfg=15      gui=none    
 hi LineNr               cterm=none ctermbg=none     ctermfg=8       gui=none        guibg=#282828   guifg=#8F8F8F
 hi StatusLine           cterm=none ctermbg=8        ctermfg=15      gui=none        guibg=#5D5D5D   guifg=#FBFBFB
 hi StatusLineNC         cterm=none ctermbg=15       ctermfg=8       gui=none        guibg=#5D5D5D   guifg=#FBFBFB
+hi Todo                 cterm=none ctermbg=15       ctermfg=6       gui=none        guibg=#2EB5C1   guifg=#F7F7F7
 hi Search               cterm=none ctermbg=6        ctermfg=15      gui=none        guibg=#2EB5C1   guifg=#F7F7F7
 hi IncSearch            cterm=none ctermbg=3        ctermfg=8       gui=none        guibg=#F6DC69   guifg=#8F8F8F
 hi ColumnMargin         cterm=none ctermbg=0                        gui=none        guibg=#000000
 hi Error                cterm=none ctermbg=1        ctermfg=15      gui=none                        guifg=#F7F7F7
 hi ErrorMsg             cterm=none ctermbg=1        ctermfg=15      gui=none                        guifg=#F7F7F7
-hi Folded               cterm=none ctermbg=8        ctermfg=2       gui=none        guibg=#3B3B3B   guifg=#90AB41
-hi FoldColumn           cterm=none ctermbg=8        ctermfg=2       gui=none        guibg=#3B3B3B   guifg=#90AB41
+hi Folded               cterm=none ctermbg=8        ctermfg=2       gui=none        guibg=#8F8F8F   guifg=#C4E858
+hi FoldColumn           cterm=none ctermbg=8        ctermfg=2       gui=none        guibg=#8F8F8F   guifg=#C4E858
 hi NonText              cterm=bold ctermbg=none     ctermfg=8       gui=bold                        guifg=#8F8F8F
 hi ModeMsg              cterm=bold ctermbg=none     ctermfg=10      gui=none
 hi Pmenu                cterm=none ctermbg=8        ctermfg=15      gui=none        guibg=#8F8F8F   guifg=#F7F7F7
@@ -44,7 +45,8 @@ hi DiffChange           cterm=bold ctermbg=4        ctermfg=15
 hi DiffDelete           cterm=bold ctermbg=1        ctermfg=15
 hi DiffText             cterm=bold ctermbg=3        ctermfg=8
 hi MatchParen           cterm=none ctermbg=6        ctermfg=15      gui=none        guibg=#2EB5C1   guifg=#F7F7F7
-hi CursorLine           cterm=none ctermbg=238      ctermfg=none    gui=none        guibg=#424242
+hi CursorLine           cterm=none ctermbg=238      ctermfg=none    gui=none        guibg=#242424
+hi CursorLineNr         cterm=none ctermbg=238      ctermfg=none    gui=none                        guifg=#FFE377
 hi CursorColumn         cterm=none ctermbg=238      ctermfg=none    gui=none        guibg=#424242
 hi Title                cterm=none ctermbg=none     ctermfg=4       gui=none                        guifg=#88CCE7
 
@@ -92,4 +94,8 @@ hi link rubyInterpolation     Interpolation
 hi link rubyInterpolationDelimiter    Interpolation
 hi link rubyRailsMethod       Method
 
-
+" GitGutter
+hi link GitGutterAdd          Keyword
+hi link GitGutterChange       String
+hi link GitGutterDelete       Symbol
+hi link GitGutterChangeDelete Identifier
