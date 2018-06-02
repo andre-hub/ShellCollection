@@ -1,4 +1,5 @@
 set nocompatible
+set clipboard=unnamed
 
 " Initialize Pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -128,3 +129,8 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " vim-gitgutter
 set signcolumn=yes
+
+" clipboard
+set clipboard=unnamed
+vmap <C-c> "+y
+nmap <C-v> "+p
